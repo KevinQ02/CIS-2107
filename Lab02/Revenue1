@@ -1,0 +1,78 @@
+#include <stdio.h> 
+#include <math.h> 
+#include <stdlib.h> 
+// Kevin Quiroz
+// 1/26/2024
+// Computer Systems and Low-Level Programming 
+// Lab 02. Paycheck_and_Revenue 
+
+
+int main() {
+    double itemPrice;
+    double itemQuantity;
+    double discount;
+    double discountAmount;
+    double total;
+    double cost;
+    double fractpart;
+    double intpart;
+
+    puts("Welcome to the 'Temple' Store\n");
+    printf("Enter item price: ");
+    scanf("%lf", &itemPrice);
+
+    if (itemPrice < 0) {
+        puts("This is not a valid item price.");
+        puts("Please run the program again");
+        exit(1);
+    }
+
+    printf("Enter quantity: ");
+    scanf("%lf", &itemQuantity);
+
+    fractpart = modf(itemQuantity, &intpart);
+
+    if (itemQuantity < 0.0 || fractpart > 0.0) {
+        puts("This is not a valid quantity order.");
+        puts("Please run the program again");
+        exit(1);
+    } 
+    else {
+        itemQuantity = itemQuantity;
+    }
+    if (itemQuantity >=1 && itemQuantity <= 49){
+        discount = 0;
+        cost = itemPrice * itemQuantity;
+        discountAmount = 0;
+        total = cost;
+    }
+    if (itemQuantity >= 50 && itemQuantity <= 99) {
+        discount = 10;
+        cost = itemPrice * item
+        Quantity;discount
+        Amount = cost *.1;
+        total = cost - discountAmount;
+    }
+    if (itemQuantity >= 100 && itemQuantity <= 149){
+        discount = 15;
+        cost = itemPrice * itemQuantity;
+        discountAmount = cost *.15;
+        total = cost - discountAmount;
+    }
+    if (itemQuantity >= 150) {
+        discount = 25;
+        cost = itemPrice * itemQuantity;
+        discountAmount = cost * .25;
+        total = cost - discountAmount;
+    }
+    
+    
+    printf( "The item price is: $%.1lf\n", itemPrice);
+    printf("The order is: %.0lf item(s)\n", itemQuantity);
+    printf( "The cost is: $%.1lf\n", cost);
+    printf( "The discount is: %.1lf%%\n", discount);
+    printf( "The discount amount is: $%.1lf\n", discountAmount);
+    printf("The total is: $%.1lf\n", total);
+    puts("Thank you for using 'Temple' store");
+    return 0;
+    }
